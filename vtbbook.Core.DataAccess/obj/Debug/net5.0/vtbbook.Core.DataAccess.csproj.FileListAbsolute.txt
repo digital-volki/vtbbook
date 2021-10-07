@@ -1,0 +1,15 @@
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\vtbbook.Core.DataAccess.deps.json
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\vtbbook.Core.DataAccess.dll
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\ref\vtbbook.Core.DataAccess.dll
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\vtbbook.Core.DataAccess.pdb
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\vtbbook.Core.Common.dll
+K:\Source\vtbbook\vtbbook.Core.DataAccess\bin\Debug\net5.0\vtbbook.Core.Common.pdb
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.csproj.AssemblyReference.cache
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.AssemblyInfoInputs.cache
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.AssemblyInfo.cs
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.csproj.CoreCompileInputs.cache
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.csproj.CopyComplete
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.dll
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\ref\vtbbook.Core.DataAccess.dll
+K:\Source\vtbbook\vtbbook.Core.DataAccess\obj\Debug\net5.0\vtbbook.Core.DataAccess.pdb

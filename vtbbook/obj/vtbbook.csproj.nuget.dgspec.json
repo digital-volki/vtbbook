@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "restore": {
+    "K:\\Source\\vtbbook\\vtbbook\\vtbbook.csproj": {}
+  },
+  "projects": {
+    "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj",
+        "projectName": "vtbbook.Core.Common",
+        "projectPath": "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj",
+        "packagesPath": "C:\\Users\\Chervinskiy\\.nuget\\packages\\",
+        "outputPath": "K:\\Source\\vtbbook\\vtbbook.Core.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Chervinskiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.12.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\vtbbook.Core.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\vtbbook.Core.DataAccess.csproj",
+        "projectName": "vtbbook.Core.DataAccess",
+        "projectPath": "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\vtbbook.Core.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Chervinskiy\\.nuget\\packages\\",
+        "outputPath": "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Chervinskiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj": {
+                "projectPath": "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "K:\\Source\\vtbbook\\vtbbook\\vtbbook.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "K:\\Source\\vtbbook\\vtbbook\\vtbbook.csproj",
+        "projectName": "vtbbook",
+        "projectPath": "K:\\Source\\vtbbook\\vtbbook\\vtbbook.csproj",
+        "packagesPath": "C:\\Users\\Chervinskiy\\.nuget\\packages\\",
+        "outputPath": "K:\\Source\\vtbbook\\vtbbook\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Chervinskiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj": {
+                "projectPath": "K:\\Source\\vtbbook\\vtbbook.Core.Common\\vtbbook.Core.Common.csproj"
+              },
+              "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\vtbbook.Core.DataAccess.csproj": {
+                "projectPath": "K:\\Source\\vtbbook\\vtbbook.Core.DataAccess\\vtbbook.Core.DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

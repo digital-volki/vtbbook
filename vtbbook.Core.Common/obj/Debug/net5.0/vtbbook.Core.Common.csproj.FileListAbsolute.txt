@@ -1,0 +1,12 @@
+K:\Source\vtbbook\vtbbook.Core.Common\bin\Debug\net5.0\vtbbook.Core.Common.deps.json
+K:\Source\vtbbook\vtbbook.Core.Common\bin\Debug\net5.0\vtbbook.Core.Common.dll
+K:\Source\vtbbook\vtbbook.Core.Common\bin\Debug\net5.0\ref\vtbbook.Core.Common.dll
+K:\Source\vtbbook\vtbbook.Core.Common\bin\Debug\net5.0\vtbbook.Core.Common.pdb
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.csproj.AssemblyReference.cache
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.GeneratedMSBuildEditorConfig.editorconfig
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.AssemblyInfoInputs.cache
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.AssemblyInfo.cs
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.csproj.CoreCompileInputs.cache
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.dll
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\ref\vtbbook.Core.Common.dll
+K:\Source\vtbbook\vtbbook.Core.Common\obj\Debug\net5.0\vtbbook.Core.Common.pdb
