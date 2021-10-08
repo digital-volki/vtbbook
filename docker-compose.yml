@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: site_db
+      POSTGRES_DB: site_db
+      POSTGRES_PASSWORD: FNomoktY4vhXM88trNFCeKXaQm
+    volumes:
+      - ~/volumes/conva_db:/var/lib/postgresql/data
+
+  dev:
+    image: postgres
+    restart: always
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_DB: dev
+      POSTGRES_PASSWORD: FNomoktY4vhXM88trNFCeKXaQm
+    volumes:
+      - ~/volumes/conva_db_dev:/var/lib/postgresql/data
+
+  web:
+    command: dotnet Conva.dll --environment=prod
+    volumes:
+      - ~/volumes/conva_static:/app/storage
+    environment:
+      ASPNETCORE_ENVIRONMENT: prod 
+    ports:
+      - "8070:80"
+    restart: always
+    depends_on: 
+      - db
+    build:
+      context: .
+      dockerfile: Conva/Dockerfile
+
+networks:
+  default:
+    external:
+      name: orchestr
