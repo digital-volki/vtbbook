@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: vtbbook_db
+      POSTGRES_DB: vtbbook_db
+      POSTGRES_PASSWORD: FNomoktY4vhXM88trNFCeKXaQm
+    volumes:
+      - ~/volumes/vtbbook_db:/var/lib/postgresql/data
+
+  web:
+    command: dotnet vtbbook.dll --environment=prod
+    volumes:
+      - ~/volumes/vtbbook_static:/app/storage
+    environment:
+      ASPNETCORE_ENVIRONMENT: prod 
+    ports:
+      - "8070:80"
+    restart: always
+    depends_on: 
+      - db
+    build:
+      context: .
+      dockerfile: vtbbook/Dockerfile
+
+networks:
+  default:
+    external:
+      name: orchestr
