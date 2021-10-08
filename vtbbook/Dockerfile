@@ -12,10 +12,12 @@ COPY ["vtbbook.Core.Common/vtbbook.Core.Common.csproj", "vtbbook.Core.Common/"]
 RUN dotnet restore "vtbbook/vtbbook.csproj"
 COPY . .
 WORKDIR "/src/vtbbook"
-RUN dotnet build "vtbbook.csproj" -c Release -o /app/build
+RUN ASPNETCORE_ENVIRONMENT="dev" \
+	dotnet build "vtbbook.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "vtbbook.csproj" -c Release -o /app/publish
+RUN ASPNETCORE_ENVIRONMENT="dev" \ 
+	dotnet publish "vtbbook.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
