@@ -36,7 +36,7 @@ namespace vtbbook.Core.DataAccess
             {
                 {
                     Environment.Development,
-                    "Server=192.168.31.236;User Id=dev;Password=FNomoktY4vhXM88trNFCeKXaQm;Port=5435;Database=dev;"
+                    "Server=65.108.55.209;User Id=vtbbook_db;Password=FNomoktY4vhXM88trNFCeKXaQm;Port=5432;Database=vtbbook_db;"
                 }
             };
 

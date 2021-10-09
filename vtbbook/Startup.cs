@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using vtbbook.Application.Domain;
+using vtbbook.Application.Service;
 using vtbbook.Core.Common;
 using vtbbook.Core.DataAccess;
 
@@ -87,7 +89,9 @@ namespace vtbbook
 
         private void ServicesRegistration(IServiceCollection services)
         {
-
+            services
+                .AddScoped<IUserService, UserService>()
+                .AddScoped<IUserDomain, UserDomain>();
         }
     }
 }

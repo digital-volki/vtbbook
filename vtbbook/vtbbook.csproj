@@ -7,10 +7,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\vtbbook.Application.Domain\vtbbook.Application.Domain.csproj" />
+    <ProjectReference Include="..\vtbbook.Application.Service\vtbbook.Application.Service.csproj" />
     <ProjectReference Include="..\vtbbook.Core.Common\vtbbook.Core.Common.csproj" />
     <ProjectReference Include="..\vtbbook.Core.DataAccess\vtbbook.Core.DataAccess.csproj" />
   </ItemGroup>

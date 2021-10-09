@@ -1,29 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using vtbbook.Application.Domain;
+using vtbbook.Models;
 
 namespace vtbbook.Controllers
 {
     [ApiController]
-    public class PingConroller : ControllerBase
+    public class PingConroller : VtbConrollerBase
     {
-        public PingConroller()
-        {
-
-        }
-
         [Route("ping")]
         [HttpGet]
         public IActionResult Ping()
         {
-            return Ok("It's a ping!");
+            return Json($"It's a ping!");
         }
 
-        [Authorize]
-        [Route("auth/ping")]
-        [HttpGet]
-        public IActionResult AuthPing()
+
+        [Route("ping")]
+        [HttpPost]
+        public IActionResult Ping([FromBody] PingModel pingModel)
         {
-            return Ok($"It's a auth ping {User.Identity.Name}!");
+            return Json($"It's a ping! Message: `{pingModel.PingText}` - from {pingModel.PingSender}");
         }
     }
 }
