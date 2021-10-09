@@ -11,6 +11,7 @@ COPY ["vtbbook.Core.DataAccess/vtbbook.Core.DataAccess.csproj", "vtbbook.Core.Da
 COPY ["vtbbook.Core.Common/vtbbook.Core.Common.csproj", "vtbbook.Core.Common/"]
 COPY ["vtbbook.Application.Service/vtbbook.Application.Service.csproj", "vtbbook.Application.Service/"]
 COPY ["vtbbook.Application.Domain/vtbbook.Application.Domain.csproj", "vtbbook.Application.Domain/"]
+COPY ["vtbbook.Application.Coupons/vtbbook.Application.Coupons.csproj", "vtbbook.Application.Coupons/"]
 RUN dotnet restore "vtbbook/vtbbook.csproj"
 COPY . .
 WORKDIR "/src/vtbbook"
