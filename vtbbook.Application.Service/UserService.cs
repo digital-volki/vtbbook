@@ -28,7 +28,7 @@ namespace vtbbook.Application.Service
             {
                 Email = user.Email,
                 PasswordHash = user.Password,
-            }).Id;
+            })?.Id ?? Guid.Empty;
         }
 
         public int? GetCurrentBalance(Guid userId)

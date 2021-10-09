@@ -30,7 +30,17 @@ namespace vtbbook.Controllers
             user.Email = userModel.Email;
             user.Password = userModel.Password;
             Guid id = _userService.UserRegistration(user);
-            return Json($"{id}");
+            if (id == Guid.Empty)
+            {
+                return new StatusCodeResult(500);
+            }
+
+            string token = _userService.UserAuth(user);
+            if (string.IsNullOrEmpty(token))
+            {
+                return Unauthorized();
+            }
+            return Json($"{token}");
         }
 
         [Route("auth")]
@@ -67,6 +77,10 @@ namespace vtbbook.Controllers
         public IActionResult GetCoupons([FromQuery] int page, [FromQuery] int count)
         {
             var coupons = _userService.GetCoupons(GetUserId(User), page, count);
+            if (coupons is null)
+            {
+                return NotFound("Пользователь не найден");
+            }
             return Json(coupons.ToList());
         }
     }

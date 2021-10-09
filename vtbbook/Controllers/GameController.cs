@@ -29,7 +29,7 @@ namespace vtbbook.Controllers
 
             if (statusRigth is null)
             {
-                return Forbid();
+                return BadRequest();
             }
 
             _gameService.End(GetUserId(User), statusRigth.Value);
