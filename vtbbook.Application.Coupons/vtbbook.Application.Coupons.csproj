@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.13.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\vtbbook.Application.Coupons\vtbbook.Application.Coupons.csproj" />
     <ProjectReference Include="..\vtbbook.Application.Domain\vtbbook.Application.Domain.csproj" />
   </ItemGroup>
 

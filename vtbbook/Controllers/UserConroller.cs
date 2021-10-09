@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
+using System.Security.Claims;
+using vtbbook.Application.Domain.Models;
 using vtbbook.Application.Service;
 using vtbbook.Models;
 
@@ -39,9 +43,31 @@ namespace vtbbook.Controllers
             string token = _userService.UserAuth(user);
             if (string.IsNullOrEmpty(token))
             {
-                return Forbid();
+                return Unauthorized();
             }
             return Json($"{token}");
+        }
+
+        [Authorize]
+        [Route("profile/balance")]
+        [HttpGet]
+        public IActionResult GetCoupons()
+        {
+            var balance = _userService.GetCurrentBalance(GetUserId(User));
+            if (balance is null)
+            {
+                return NotFound("Пользователь не найден");
+            }
+            return Json($"{balance}");
+        }
+
+        [Authorize]
+        [Route("profile/coupons")]
+        [HttpGet]
+        public IActionResult GetCoupons([FromQuery] int page, [FromQuery] int count)
+        {
+            var coupons = _userService.GetCoupons(GetUserId(User), page, count);
+            return Json(coupons.ToList());
         }
     }
 }

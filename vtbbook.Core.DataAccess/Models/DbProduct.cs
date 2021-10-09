@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace vtbbook.Core.DataAccess.Models
 {
-    public class DbUser : BaseEntity, IEquatable<Guid>
+    public class DbProduct : BaseEntity
     {
         [Key]
         [Required]
@@ -15,20 +15,19 @@ namespace vtbbook.Core.DataAccess.Models
 
         [Required]
         [EmailAddress]
+        [MaxLength(100)]
+        public string Title { get; set; } = string.Empty;
+
         [MaxLength(255)]
-        public string Email { get; set; } = string.Empty;
+        [Required]
+        public string Description { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(64)]
-        public string PasswordHash { get; set; } = string.Empty;
+        public int Price { get; set; }
 
-        public int Currency { get; set; }
+        [Required]
+        public double Discount { get; set; }
 
         public IEnumerable<DbCoupon>? Coupons { get; set; } = new List<DbCoupon>();
-
-        public bool Equals(Guid other)
-        {
-            return Id == other;
-        }
     }
 }

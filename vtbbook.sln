@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vtbbook.Core.DataAccess", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vtbbook.Core.Common", "vtbbook.Core.Common\vtbbook.Core.Common.csproj", "{74128DC0-4FC4-42F3-9245-E7D01C44A467}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtbbook.Application.Service", "vtbbook.Application.Service\vtbbook.Application.Service.csproj", "{375C06DB-E309-4E6C-A775-A10CA87E0D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vtbbook.Application.Service", "vtbbook.Application.Service\vtbbook.Application.Service.csproj", "{375C06DB-E309-4E6C-A775-A10CA87E0D34}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{448B8016-3621-4A69-88D6-EBCBEAC35AB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtbbook.Application.Domain", "vtbbook.Application.Domain\vtbbook.Application.Domain.csproj", "{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vtbbook.Application.Domain", "vtbbook.Application.Domain\vtbbook.Application.Domain.csproj", "{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vtbbook.Application.Coupons", "vtbbook.Application.Coupons\vtbbook.Application.Coupons.csproj", "{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{74128DC0-4FC4-42F3-9245-E7D01C44A467} = {8E00C7F8-B200-4F08-AD68-9AC629C4EA55}
 		{375C06DB-E309-4E6C-A775-A10CA87E0D34} = {448B8016-3621-4A69-88D6-EBCBEAC35AB8}
 		{D6340B4D-21BD-4D0B-B8EE-272D6A103AE7} = {448B8016-3621-4A69-88D6-EBCBEAC35AB8}
+		{8B7560A4-5CC2-4CA6-9114-9BDB745B12FC} = {448B8016-3621-4A69-88D6-EBCBEAC35AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39C8972C-03CC-4FEB-9EC6-1EF0163C1668}

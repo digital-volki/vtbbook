@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using vtbbook.Application.Domain;
+using vtbbook.Application.Domain.Models;
 using vtbbook.Core.Common;
 using vtbbook.Core.DataAccess.Models;
 
@@ -23,30 +24,90 @@ namespace vtbbook.Application.Service
 
         public Guid UserRegistration(User user) 
         {
-            DbUser dbUser = new();
-            dbUser.Email = user.Email;
-            dbUser.PasswordHash = user.Password;
-            return _userDomain.Add(dbUser).Id;
+            return _userDomain.Add(new DbUser 
+            {
+                Email = user.Email,
+                PasswordHash = user.Password,
+            }).Id;
         }
 
-        private DbUser GetUserByEmail(string email)
+        public int? GetCurrentBalance(Guid userId)
         {
-            return _userDomain.Get().Where(x => x.Email == email).FirstOrDefault();
+            if (!UserExist(userId))
+            {
+                return null;
+            }
+
+            return GetUser(userId).Currency;
         }
 
         public bool UserExist(string email) 
         {
-            return GetUserByEmail(email) != null;
+            return GetUser(email) != null;
+        }
+
+        public bool UserExist(Guid userId)
+        {
+            return GetUser(userId) != null;
         }
 
         public string UserAuth(User user)
         {
-            DbUser dbUser = GetUserByEmail(user.Email);
+            DbUser dbUser = GetUser(user.Email);
             if (dbUser == null || dbUser.PasswordHash != user.Password)
             {
                 return null;
             }
             return GenerateToken(dbUser);
+        }
+
+        public IEnumerable<Coupon> GetCoupons(Guid userId, int page, int count)
+        {
+            if (!UserExist(userId))
+            {
+                return null;
+            }
+
+            return GetUser(userId).Coupons
+                .Skip((page - 1) * count)
+                .Take(count)
+                .Select(x => new Coupon
+                {
+                    Data = x.Data,
+                    Expire = x.Expire
+                });
+        }
+
+        public void AddCurrency(Guid userId, int currencyVolume)
+        {
+            if (!UserExist(userId))
+            {
+                return;
+            }
+
+            var dbUser = GetUser(userId);
+            dbUser.Currency += currencyVolume;
+            _userDomain.Update(dbUser);
+        }
+
+        public bool IsEnoughFunds(Guid userId, int currencyVolume)
+        {
+            if (!UserExist(userId))
+            {
+                return false;
+            }
+
+            return GetUser(userId).Currency >= currencyVolume;
+        }
+
+        private DbUser GetUser(string email)
+        {
+            return _userDomain.Get().Where(x => x.Email == email).FirstOrDefault();
+        }
+
+        private DbUser GetUser(Guid userId)
+        {
+            return _userDomain.Get().Where(x => x.Id == userId).FirstOrDefault();
         }
 
         private string GenerateToken(DbUser user)

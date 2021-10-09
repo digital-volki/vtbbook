@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
+using vtbbook.Application.Coupons;
 using vtbbook.Application.Domain;
 using vtbbook.Application.Service;
 using vtbbook.Core.Common;
@@ -92,7 +93,12 @@ namespace vtbbook
         {
             services
                 .AddScoped<IUserService, UserService>()
-                .AddScoped<IUserDomain, UserDomain>();
+                .AddScoped<IStoreService, StoreService>()
+                .AddScoped<IGameService, GameService>()
+                .AddScoped<IUserDomain, UserDomain>()
+                .AddScoped<IStoreDomain, StoreDomain>()
+                .AddScoped<ICouponDomain, CouponDomain>()
+                .AddScoped<ICouponFactory, CouponFactory>();
         }
     }
 }

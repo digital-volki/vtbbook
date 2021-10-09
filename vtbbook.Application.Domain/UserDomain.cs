@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using vtbbook.Core.DataAccess;
 using vtbbook.Core.DataAccess.Models;
@@ -21,18 +22,37 @@ namespace vtbbook.Application.Domain
                 return null;
             }
 
-            var account = _dataContext.Insert(dbUser);
+            var user = _dataContext.Insert(dbUser);
 
-            if (account == null)
+            if (user == null)
             {
                 return null;
             }
 
-            return _dataContext.Save() != 0 ? account : null;
+            return _dataContext.Save() != 0 ? user : null;
         }
+
+        public DbUser? Update(DbUser? dbUser)
+        {
+            if (dbUser == null)
+            {
+                return null;
+            }
+
+            var user = _dataContext.Update(dbUser);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            return _dataContext.Save() != 0 ? user : null;
+        }
+
         public IQueryable<DbUser> Get()
         {
-            return _dataContext.GetQueryable<DbUser>();
+            return _dataContext.GetQueryable<DbUser>()
+                .Include(x => x.Coupons);
         }
     }
 }

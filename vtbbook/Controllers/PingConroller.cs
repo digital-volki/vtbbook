@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using vtbbook.Application.Domain;
-using vtbbook.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace vtbbook.Controllers
 {
@@ -13,22 +10,6 @@ namespace vtbbook.Controllers
         public IActionResult Ping()
         {
             return Json($"It's a ping!");
-        }
-
-
-        [Route("ping")]
-        [HttpPost]
-        public IActionResult Ping([FromBody] PingModel pingModel)
-        {
-            return Json($"It's a ping! Message: `{pingModel.PingText}` - from {pingModel.PingSender}");
-        }
-
-        [Authorize]
-        [Route("auth/ping")]
-        [HttpGet]
-        public IActionResult AuthPing()
-        {
-            return Json($"It's a AuthPing!");
         }
     }
 }
