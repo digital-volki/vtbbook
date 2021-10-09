@@ -13,6 +13,7 @@ namespace vtbbook.Controllers
     public class UserConroller : VtbConrollerBase
     {
         private readonly IUserService _userService;
+
         public UserConroller(IUserService userService)
         {
             _userService = userService;
@@ -26,10 +27,15 @@ namespace vtbbook.Controllers
             {
                 return Conflict();
             }
-            User user = new();
-            user.Email = userModel.Email;
-            user.Password = userModel.Password;
+
+            var user = new User
+            {
+                Email = userModel.Email,
+                Password = userModel.Password
+            };
+
             Guid id = _userService.UserRegistration(user);
+
             if (id == Guid.Empty)
             {
                 return new StatusCodeResult(500);
@@ -47,10 +53,12 @@ namespace vtbbook.Controllers
         [HttpPost]
         public IActionResult Authorization([FromBody] UserModel userModel)
         {
-            User user = new();
-            user.Email = userModel.Email;
-            user.Password = userModel.Password;
-            string token = _userService.UserAuth(user);
+            string token = _userService.UserAuth(new User
+            {
+                Email = userModel.Email,
+                Password = userModel.Password
+            });
+
             if (string.IsNullOrEmpty(token))
             {
                 return Unauthorized();

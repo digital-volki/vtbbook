@@ -18,8 +18,4 @@
     <ProjectReference Include="..\vtbbook.Core.Common\vtbbook.Core.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

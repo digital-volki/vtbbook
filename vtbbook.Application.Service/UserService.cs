@@ -56,7 +56,7 @@ namespace vtbbook.Application.Service
         public string UserAuth(User user)
         {
             DbUser dbUser = GetUser(user.Email);
-            if (dbUser == null || dbUser.PasswordHash != user.Password)
+            if (dbUser == null || dbUser.PasswordHash != Cryptography.SHA3(user.Password))
             {
                 return null;
             }
