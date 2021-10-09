@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System.Collections.Generic;
 using vtbbook.Application.Domain;
 using vtbbook.Application.Service;
 using vtbbook.Core.Common;
@@ -67,13 +68,14 @@ namespace vtbbook
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        ValidateIssuer = true,
+                        ValidateIssuer = false,
                         ValidIssuer = authOptions.Issuer,
-                        ValidateAudience = true,
+                        ValidateAudience = false,
                         ValidAudience = authOptions.Audience,
-                        ValidateLifetime = true,
+                        ValidateLifetime = false,
                         IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
-                        ValidateIssuerSigningKey = true
+                        ValidateIssuerSigningKey = false,
+                        ValidAlgorithms = new List<string> { SecurityAlgorithms.HmacSha256 }
                     };
                 });
         }

@@ -18,6 +18,10 @@ namespace vtbbook.Controllers
         [HttpPost]
         public IActionResult Registration([FromBody] UserModel userModel)
         {
+            if (_userService.UserExist(userModel.Email))
+            {
+                return Conflict();
+            }
             User user = new();
             user.Email = userModel.Email;
             user.Password = userModel.Password;
@@ -26,10 +30,18 @@ namespace vtbbook.Controllers
         }
 
         [Route("auth")]
-        [HttpGet]
-        public IActionResult Authorization()
+        [HttpPost]
+        public IActionResult Authorization([FromBody] UserModel userModel)
         {
-            return Json($"It's a auth ping {User.Identity.Name}!");
+            User user = new();
+            user.Email = userModel.Email;
+            user.Password = userModel.Password;
+            string token = _userService.UserAuth(user);
+            if (string.IsNullOrEmpty(token))
+            {
+                return Forbid();
+            }
+            return Json($"{token}");
         }
     }
 }

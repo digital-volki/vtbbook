@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using System.Linq;
 using vtbbook.Core.DataAccess;
 using vtbbook.Core.DataAccess.Models;
 
@@ -28,6 +29,10 @@ namespace vtbbook.Application.Domain
             }
 
             return _dataContext.Save() != 0 ? account : null;
+        }
+        public IQueryable<DbUser> Get()
+        {
+            return _dataContext.GetQueryable<DbUser>();
         }
     }
 }
