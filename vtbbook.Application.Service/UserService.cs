@@ -8,6 +8,8 @@ using vtbbook.Application.Domain;
 using vtbbook.Application.Domain.Models;
 using vtbbook.Core.Common;
 using vtbbook.Core.DataAccess.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace vtbbook.Application.Service
 {
@@ -27,7 +29,7 @@ namespace vtbbook.Application.Service
             return _userDomain.Add(new DbUser 
             {
                 Email = user.Email,
-                PasswordHash = user.Password,
+                PasswordHash = Cryptography.SHA3(user.Password),
             })?.Id ?? Guid.Empty;
         }
 

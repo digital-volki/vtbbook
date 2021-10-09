@@ -13,6 +13,7 @@ namespace vtbbook.Core.DataAccess.Models
         public Guid Id { get; set; }
 
         public DbProduct? Product { get; set; }
+        public DbUser? User { get; set; }
 
         [Required]
         public string? Data { get; set; } = string.Empty;

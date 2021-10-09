@@ -14,17 +14,20 @@ namespace vtbbook.Application.Service
         private readonly ICouponDomain _couponDomain;
         private readonly ICouponFactory _couponFactory;
         private readonly IUserService _userService;
+        private readonly IUserDomain _userDomain;
 
         public StoreService(
-            IStoreDomain storeDomain, 
-            ICouponDomain couponDomain, 
-            ICouponFactory couponFactory, 
-            IUserService userService)
+            IStoreDomain storeDomain,
+            ICouponDomain couponDomain,
+            ICouponFactory couponFactory,
+            IUserService userService, 
+            IUserDomain userDomain)
         {
             _storeDomain = storeDomain;
             _couponDomain = couponDomain;
             _couponFactory = couponFactory;
             _userService = userService;
+            _userDomain = userDomain;
         }
 
         public IEnumerable<Product> GetProducts(int page, int count)
@@ -44,7 +47,8 @@ namespace vtbbook.Application.Service
         public Coupon BuyProduct(Guid userId, Guid productId)
         {
             var dbProduct = GetProduct(productId);
-            if (dbProduct is null || !_userService.UserExist(userId))
+            var dbUser = _userDomain.Get().FirstOrDefault(x => x.Id == userId);
+            if (dbProduct is null || dbUser is null)
             {
                 return null;
             }
@@ -56,7 +60,8 @@ namespace vtbbook.Application.Service
             {
                 Data = coupon.Data,
                 Expire = coupon.Expire,
-                Product = dbProduct
+                Product = dbProduct,
+                User = dbUser
             });
 
             if (dbCoupon is null)
