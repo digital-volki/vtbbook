@@ -2,6 +2,7 @@
 {
     public enum Environment
     {
-        Development
+        Development,
+        Docker
     }
 }

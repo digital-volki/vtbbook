@@ -42,15 +42,16 @@ namespace vtbbook
             app.UseAuthorization();
             app.UseAuthentication();
 
-            if (env.IsDevelopment())
+            app.UseEndpoints(endpoints =>
             {
-                app.UseDeveloperExceptionPage();
-            }
+                endpoints.MapControllers();
+            });
         }
 
         private void CommonRegistration(IServiceCollection services, ISettings settings)
         {
-            var authOptions = settings.GetSection<AuthOptions>($"{typeof(AuthOptions)}");
+            var authOptions = settings.GetSection<AuthOptions>($"{nameof(AuthOptions)}");
+            services.AddControllers();
             services.AddHttpContextAccessor()
                 .AddCors()
                 .AddAuthorization()

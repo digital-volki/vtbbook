@@ -18,7 +18,7 @@ services:
     volumes:
       - ~/volumes/vtbbook_static:/app/storage
     environment:
-      ASPNETCORE_ENVIRONMENT: prod 
+      ASPNETCORE_ENVIRONMENT: docker 
     ports:
       - "80:80"
     restart: always

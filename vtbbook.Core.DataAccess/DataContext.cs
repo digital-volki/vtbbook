@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using vtbbook.Core.Common;
+using vtbbook.Core.Common.Environment;
 using vtbbook.Core.DataAccess.Models;
 using Environment = vtbbook.Core.Common.Environment.Environment;
 
@@ -14,16 +15,13 @@ namespace vtbbook.Core.DataAccess
     public class DataContext : IdentityDbContext, IDataContext
     {
         private readonly ISettings _settings;
-        private readonly ILogger<DataContext> _logger;
 
         public DataContext(
             DbContextOptions<DataContext> options,
-            ISettings settings,
-            ILogger<DataContext> logger)
+            ISettings settings)
             : base(options)
         {
             _settings = settings;
-            _logger = logger;
             Database.EnsureCreated();
         }
 
@@ -34,7 +32,7 @@ namespace vtbbook.Core.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionStrings = new Dictionary<Environment, string>
+            var devConnectionStrings = new Dictionary<Environment, string>
             {
                 {
                     Environment.Development,
@@ -44,7 +42,7 @@ namespace vtbbook.Core.DataAccess
 
             base.OnConfiguring(optionsBuilder
                 .UseNpgsql(_settings.GetValue("ConnectionStrings:DefaultConnection")
-                ?? connectionStrings[Environment.Development]));
+                ?? devConnectionStrings[EnvironmentGetter.DevCurrentEnv]));
         }
 
         public IQueryable<T> GetQueryable<T>(bool trackChanges = true, bool disabled = false) where T : class, new()
@@ -140,7 +138,7 @@ namespace vtbbook.Core.DataAccess
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "Save error.");
+                //_logger.LogError(e, "Save error.");
                 throw;
             }
             return changes;
