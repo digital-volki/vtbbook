@@ -22,8 +22,8 @@ namespace vtbbook.Controllers
         {
             GameEndStatus? statusRigth = status switch
             {
-                "win" => GameEndStatus.Win,
-                "lose" => GameEndStatus.Lose,
+                "Win" => GameEndStatus.Win,
+                "Lose" => GameEndStatus.Lose,
                 _ => null,
             };
 
