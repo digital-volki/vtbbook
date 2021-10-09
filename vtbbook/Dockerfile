@@ -9,6 +9,8 @@ WORKDIR /src
 COPY ["vtbbook/vtbbook.csproj", "vtbbook/"]
 COPY ["vtbbook.Core.DataAccess/vtbbook.Core.DataAccess.csproj", "vtbbook.Core.DataAccess/"]
 COPY ["vtbbook.Core.Common/vtbbook.Core.Common.csproj", "vtbbook.Core.Common/"]
+COPY ["vtbbook.Application.Service/vtbbook.Application.Service.csproj", "vtbbook.Application.Service/"]
+COPY ["vtbbook.Application.Domain/vtbbook.Application.Domain.csproj", "vtbbook.Application.Domain/"]
 RUN dotnet restore "vtbbook/vtbbook.csproj"
 COPY . .
 WORKDIR "/src/vtbbook"
