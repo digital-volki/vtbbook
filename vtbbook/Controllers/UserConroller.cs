@@ -51,7 +51,7 @@ namespace vtbbook.Controllers
         [Authorize]
         [Route("profile/balance")]
         [HttpGet]
-        public IActionResult GetCoupons()
+        public IActionResult GetBalance()
         {
             var balance = _userService.GetCurrentBalance(GetUserId(User));
             if (balance is null)
