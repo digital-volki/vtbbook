@@ -42,8 +42,8 @@ namespace vtbbook
 
             app.UseWebSockets();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -57,25 +57,24 @@ namespace vtbbook
             services.AddControllers();
             services.AddHttpContextAccessor()
                 .AddCors()
-                .AddAuthorization()
-                .AddAuthentication(options =>
+                .AddAuthentication(auth =>
                 {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                }).AddJwtBearer(options =>
+                    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    auth.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
                 {
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        ValidateIssuer = false,
+                        ValidateIssuer = true,
                         ValidIssuer = authOptions.Issuer,
-                        ValidateAudience = false,
+                        ValidateAudience = true,
                         ValidAudience = authOptions.Audience,
-                        ValidateLifetime = false,
+                        ValidateLifetime = true,
                         IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
-                        ValidateIssuerSigningKey = false,
-                        ValidAlgorithms = new List<string> { SecurityAlgorithms.HmacSha256 }
+                        ValidateIssuerSigningKey = true
                     };
                 });
         }

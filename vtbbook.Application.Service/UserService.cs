@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using vtbbook.Application.Domain;
 using vtbbook.Core.Common;
 using vtbbook.Core.DataAccess.Models;
@@ -59,12 +58,13 @@ namespace vtbbook.Application.Service
                 new Claim(ClaimTypes.Email, user.Email)
             };
 
+            var now = DateTime.UtcNow;
             var jwt = new JwtSecurityToken(
                 issuer: authOptions.Issuer,
                 audience: authOptions.Audience,
-                notBefore: DateTime.UtcNow,
+                notBefore: now,
                 claims: claimsList,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(authOptions.Lifetime)),
+                expires: now.Add(TimeSpan.FromMinutes(authOptions.Lifetime)),
                 signingCredentials: new SigningCredentials(
                     authOptions.GetSymmetricSecurityKey(),
                     SecurityAlgorithms.HmacSha256)
