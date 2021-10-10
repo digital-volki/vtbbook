@@ -1,0 +1,931 @@
+{
+	"info": {
+		"_postman_id": "d3ee8e6b-16ec-4252-881f-fb1e59b8797c",
+		"name": "VTB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"DemoPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/reg",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"reg"
+							]
+						},
+						"description": "# Регистрация\n## Обязательные параметры в body\n- Email - почта\n- Password - пароль\n\n## Ошибки\n- 403 Conflict - пользователь с таким **Email** уже существует\n- 401 Unauthorized - отказано в авторизации\n- 500 Server Error - не удалось зарегистрировать пользователя\n\n## Возвращаемое значение\nТокен\n\n```return string```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"DemoPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/reg",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"reg"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 15:58:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "\"39a28a43-63b4-46bc-864a-efcc55a1b201\""
+						},
+						{
+							"name": "Error 409: Account already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"DemoPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth/reg",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth",
+										"reg"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 15:59:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc7231#section-6.5.8\",\n    \"title\": \"Conflict\",\n    \"status\": 409,\n    \"traceId\": \"00-6e7de836a7ffee49810b0c8c6ca39bb6-4dfa170b256cc54d-00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Authtorization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"incorrectPass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth"
+							]
+						},
+						"description": "# Авторизация\n## Обязательные параметры в body\n- Email - почта\n- Password - пароль\n\n## Ошибки\n- 401 Unauthorized - отказано в авторизации\n\n## Возвращаемое значение\nТокен\n\n```return string```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"DemoPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 16:01:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM5YTI4YTQzLTYzYjQtNDZiYy04NjRhLWVmY2M1NWExYjIwMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRlbW9AdGVjaG5vLXRlYW0ucnUiLCJuYmYiOjE2MzM3OTUyODEsImV4cCI6MTYzNDAxMTI4MSwiaXNzIjoidnRiYm9va1NlcnZlciIsImF1ZCI6InZ0YmJvb2tDbGllbnQifQ.UnD85_n3Cr51xz5INGM6XYskK8S4IkK-eJWn4fPg6sE\""
+						},
+						{
+							"name": "Error 401: Incorrect data or user doesn't exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"demo@techno-team.ru\",\r\n    \"Password\": \"incorrectPass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/auth",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 16:02:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "GetUserCoupons",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM5YTI4YTQzLTYzYjQtNDZiYy04NjRhLWVmY2M1NWExYjIwMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRlbW9AdGVjaG5vLXRlYW0ucnUiLCJuYmYiOjE2MzM3OTUyODEsImV4cCI6MTYzNDAxMTI4MSwiaXNzIjoidnRiYm9va1NlcnZlciIsImF1ZCI6InZ0YmJvb2tDbGllbnQifQ.UnD85_n3Cr51xz5INGM6XYskK8S4IkK-eJWn4fPg6sE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/profile/coupons?page=1&count=5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile",
+								"coupons"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "count",
+									"value": "5"
+								}
+							]
+						},
+						"description": "# Получение купленных купонов\n## *Токен авторизации обязателен*\n\n## Ошибки\n- 404 Not Found - авторизированный пользователь не найден\n\n## Возвращаемое значение\n```[Coupon]```\n\nМодель\n\n```\nCoupon {\n  string Data\n  DateTime Expire\n}\n```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/profile/coupons?page=1&count=5",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"profile",
+										"coupons"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "count",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 16:19:59 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"data\": \"3f2a81fa-0087-4397-8ce5-9044c15d2384\",\n        \"expire\": \"2021-11-09T19:19:27\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GetCurrentBalance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM5YTI4YTQzLTYzYjQtNDZiYy04NjRhLWVmY2M1NWExYjIwMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRlbW9AdGVjaG5vLXRlYW0ucnUiLCJuYmYiOjE2MzM3OTUyODEsImV4cCI6MTYzNDAxMTI4MSwiaXNzIjoidnRiYm9va1NlcnZlciIsImF1ZCI6InZ0YmJvb2tDbGllbnQifQ.UnD85_n3Cr51xz5INGM6XYskK8S4IkK-eJWn4fPg6sE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/profile/balance",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile",
+								"balance"
+							]
+						},
+						"description": "# Получение текущего баланса\n## *Токен авторизации обязателен*\n\n## Ошибки\n- 404 Not Found - авторизированный пользователь не найден\n\n## Возвращаемое значение\n```return int```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/profile/balance",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"profile",
+										"balance"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 18:29:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "\"100\""
+						},
+						{
+							"name": "Error 404: User from token not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/profile/balance",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"profile",
+										"balance"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 18:30:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Пользователь не найден"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "GetProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/store?page=1&count=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"store"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "count",
+									"value": "10"
+								}
+							]
+						},
+						"description": "# Получение продуктов магазина\n## Обязательные параметры в body\n- Page - страница (смещение поиска)\n- Count - количество получаемых продуктов\n\n## Возвращаемые данные\n```return [Product]```\n\nМодель:\n```Product \n{ \n  string Title,\n  string Description,\n  int Title,\n  double Discount\n}```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/store?page=1&count=10",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"store"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "count",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 16:24:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"Nike Store\",\n        \"description\": \"Получи 20% на свои покупки при оплате более чем 6000 ₽\",\n        \"price\": 2400,\n        \"discount\": 0.2\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "BuyProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM5YTI4YTQzLTYzYjQtNDZiYy04NjRhLWVmY2M1NWExYjIwMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRlbW9AdGVjaG5vLXRlYW0ucnUiLCJuYmYiOjE2MzM3OTUyODEsImV4cCI6MTYzNDAxMTI4MSwiaXNzIjoidnRiYm9va1NlcnZlciIsImF1ZCI6InZ0YmJvb2tDbGllbnQifQ.UnD85_n3Cr51xz5INGM6XYskK8S4IkK-eJWn4fPg6sE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/store/buy/1377d6be-2275-4498-8fb8-98cf9ef820b3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"store",
+								"buy",
+								"1377d6be-2275-4498-8fb8-98cf9ef820b3"
+							]
+						},
+						"description": "# Покупка продукта\n## Обязательные параметры в body\n- Email - почта\n- Password - пароль\n\n## Ошибки\n- 404 Not Found - продукт не существует\n- 403 Forbidden - недостаточно средств\n- 404 Not Found - Не удалось зарезервировать купон\n\n## Возвращаемое значение\n```return Coupon```\nМодель\n\n```\nCoupon {\n  string Data\n  DateTime Expire\n}\n```"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/store/buy/1377d6be-2275-4498-8fb8-98cf9ef820b3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"store",
+										"buy",
+										"1377d6be-2275-4498-8fb8-98cf9ef820b3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 16:59:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": \"291b69f9-65a7-41ee-831b-8d30ec549382\",\n    \"expire\": \"2021-11-08T16:59:34.0250921Z\"\n}"
+						},
+						{
+							"name": "Error 404: Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/store/buy/1377d6be-2275-4498-8fb8-98cf9ef820b1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"store",
+										"buy",
+										"1377d6be-2275-4498-8fb8-98cf9ef820b1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 17:03:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Продукт не существует, или не удалось зарезервировать купон"
+						},
+						{
+							"name": "Error 403: Insufficient funds",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/store/buy/1377d6be-2275-4498-8fb8-98cf9ef820b3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"store",
+										"buy",
+										"1377d6be-2275-4498-8fb8-98cf9ef820b3"
+									]
+								}
+							},
+							"status": "Forbiden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 17:03:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "EndGame",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM5YTI4YTQzLTYzYjQtNDZiYy04NjRhLWVmY2M1NWExYjIwMSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRlbW9AdGVjaG5vLXRlYW0ucnUiLCJuYmYiOjE2MzM3OTUyODEsImV4cCI6MTYzNDAxMTI4MSwiaXNzIjoidnRiYm9va1NlcnZlciIsImF1ZCI6InZ0YmJvb2tDbGllbnQifQ.UnD85_n3Cr51xz5INGM6XYskK8S4IkK-eJWn4fPg6sE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"aboba\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/game/end",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"game",
+								"end"
+							]
+						},
+						"description": "# Окончание игры (получение награды)\n## Обязательные параметры в body\n- GameEndStatus status - статус игры\n```\nGameEndStatus {\n  Win,\n  Lose\n}\n```\n\n## Ошибки\n- 400 Forbidden - некорректные параметры"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"win\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/game/end",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"game",
+										"end"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 18:12:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error 403: Incorrect data",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"aboba\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/game/end",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"game",
+										"end"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 09 Oct 2021 18:12:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/ping",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ping"
+					]
+				},
+				"description": "## Пинг\nПросто чтобы удостовериться что сервер работает"
+			},
+			"response": [
+				{
+					"name": "Response: OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/ping",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 09 Oct 2021 15:52:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"It's a ping!\""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://vtb.techno-team.ru"
+		}
+	]
+}
